@@ -6,13 +6,15 @@ class CategoryItem extends StatelessWidget {
   const CategoryItem({
     super.key,
     required this.category,
+    required this.onselect,
   });
 
   final Category category;
+  final void Function() onselect;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onselect,
       splashColor: Theme.of(context).highlightColor,
       child: Container(
         padding: EdgeInsets.all(12),

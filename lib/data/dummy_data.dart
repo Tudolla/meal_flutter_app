@@ -4,27 +4,56 @@ import 'package:flutter/material.dart';
 import 'package:meal_app/model/category.dart';
 import 'package:meal_app/model/meal.dart';
 
-
-const categoriesData = [
+const availableCategories = [
   Category(
-    id: 'a1',
-    title: "Pham Kieu Van",
+    id: 'c1',
+    title: 'Italian',
     color: Colors.purple,
   ),
   Category(
-    id: 'a12',
-    title: "Pham Kieu Van",
-    color: Color.fromARGB(255, 52, 218, 218),
+    id: 'c2',
+    title: 'Quick & Easy',
+    color: Colors.red,
   ),
   Category(
-    id: 'a3',
-    title: "Pham Kieu Van",
-    color: Color.fromARGB(255, 102, 226, 85),
+    id: 'c3',
+    title: 'Hamburgers',
+    color: Colors.orange,
   ),
   Category(
-    id: 'a',
-    title: "Pham Kieu Van",
-    color: Color.fromARGB(255, 238, 131, 9),
+    id: 'c4',
+    title: 'German',
+    color: Colors.amber,
+  ),
+  Category(
+    id: 'c5',
+    title: 'Light & Lovely',
+    color: Colors.blue,
+  ),
+  Category(
+    id: 'c6',
+    title: 'Exotic',
+    color: Colors.green,
+  ),
+  Category(
+    id: 'c7',
+    title: 'Breakfast',
+    color: Colors.lightBlue,
+  ),
+  Category(
+    id: 'c8',
+    title: 'Asian',
+    color: Colors.lightGreen,
+  ),
+  Category(
+    id: 'c9',
+    title: 'French',
+    color: Colors.pink,
+  ),
+  Category(
+    id: 'c10',
+    title: 'Summer',
+    color: Colors.teal,
   ),
 ];
 

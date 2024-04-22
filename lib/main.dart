@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
     // TODO: implement build
     return MaterialApp(
       theme: theme,
-      home: MealScreen(title: 'Some fucking noise', meals: dummyMeals,),
+      // home: MealScreen(title: 'Some fucking noise', meals: dummyMeals,),
+      home: const CategoriesScreen(),  
     );
   }
 }
