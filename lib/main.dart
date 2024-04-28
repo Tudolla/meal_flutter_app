@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:meal_app/data/dummy_data.dart';
 import 'package:meal_app/screens/categories.dart';
 import 'package:meal_app/screens/meals.dart';
+import 'package:meal_app/screens/tab.dart';
 
 final theme = ThemeData(
   colorScheme: ColorScheme.fromSeed(
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: theme,
       // home: MealScreen(title: 'Some fucking noise', meals: dummyMeals,),
-      home: const CategoriesScreen(),  
+      home: const TabScreen(),  
     );
   }
 }
