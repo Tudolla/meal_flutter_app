@@ -5,81 +5,79 @@ import 'package:meal_app/screens/filters.dart';
 import 'package:meal_app/screens/meals.dart';
 import 'package:meal_app/widgets/main_drawer.dart';
 
-class TabScreen extends StatefulWidget{
-  const TabScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<TabScreen> createState() {
-    return _TabScreenState();
+  State<HomeScreen> createState() {
+    return _HomeScreenState();
   }
-
 }
 
-class _TabScreenState extends State<TabScreen>{
-  int _pageIndex = 0 ; 
+class _HomeScreenState extends State<HomeScreen> {
+  int _pageIndex = 0;
   final List<Meal> _favoriteMeal = [];
-  void _showMessenger(String mess){
+  void _showMessenger(String mess) {
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(mess)));
   }
 
-  void _mealFavoriteStatus(Meal meal){
+  void _mealFavoriteStatus(Meal meal) {
     final isExist = _favoriteMeal.contains(meal);
-    if(isExist){
+    if (isExist) {
       setState(() {
-      _favoriteMeal.remove(meal);
-
-        
+        _favoriteMeal.remove(meal);
       });
       _showMessenger('Remove');
-    }else{
+    } else {
       setState(() {
-      _favoriteMeal.add(meal);
-
-        
+        _favoriteMeal.add(meal);
       });
       _showMessenger('Add');
-
     }
   }
 
-  void _setScreen(String id){
+  void _setScreen(String id) {
     Navigator.of(context).pop();
-    if(id == 'Setting'){
-      Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> FilterScreen()));
-
+    if (id == 'Setting') {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (ctx) => FilterScreen()));
     }
-
   }
 
-  void _selectPage(int index){
+  void _selectPage(int index) {
     setState(() {
       _pageIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
-    Widget activePage = CategoriesScreen(onToggleFavorite: _mealFavoriteStatus,);
+    Widget activePage = CategoriesScreen(
+      onToggleFavorite: _mealFavoriteStatus,
+    );
     var pageTitle = 'Home';
 
-    if(_pageIndex == 1){
-      activePage = MealScreen( meals: _favoriteMeal, onToggleFavorite: _mealFavoriteStatus);
+    if (_pageIndex == 1) {
+      activePage = MealScreen(
+          meals: _favoriteMeal, onToggleFavorite: _mealFavoriteStatus);
       pageTitle = 'Favorite Page';
     }
     // TODO: implement build
     return Scaffold(
       drawer: MainDrawer(onTapScreen: _setScreen),
-      appBar: AppBar(title: Text(pageTitle),),
+      appBar: AppBar(
+        title: Text(pageTitle),
+      ),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
         currentIndex: _pageIndex,
-        items:const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Favors'),
-        
-      ],),
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Favors'),
+        ],
+      ),
     );
   }
-
 }

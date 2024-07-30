@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meal_app/model/category.dart';
 
@@ -17,7 +16,7 @@ class CategoryItem extends StatelessWidget {
       onTap: onselect,
       splashColor: Theme.of(context).highlightColor,
       child: Container(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           gradient: LinearGradient(
